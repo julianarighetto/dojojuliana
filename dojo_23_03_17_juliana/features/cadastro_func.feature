@@ -9,10 +9,10 @@ Para manter os dados no banco de dados
 Cenario: Cadastrar Novo Funcionario
 	Dado que esteja na home so site da empresa
 	Quando realizar o cadastro 
-	Entao apresentar a mensagem de sucesso
+	Entao validar a mensagem de sucesso
 
 Cenario: Alterar Cadastro Funcionario
 	Dado que esteja na home do site
 	Quando alterar o cadastro 
-	Entao realizar a alteracao
+	Entao validar a mensagem de alteracao com sucesso
 	
