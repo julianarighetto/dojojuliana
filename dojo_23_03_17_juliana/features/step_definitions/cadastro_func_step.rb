@@ -12,13 +12,14 @@ Quando(/^realizar o cadastro$/) do
   fill_in('lastName',:with =>'Ferreira')
   select('New York Sales Office',:from=>'location')
   click_button('btnSave')
-  sleep 2
+  sleep 1
 end
 
-Entao(/^apresentar a mensagem de sucesso$/) do
- 	find(:id, 'welcome').click
+Entao (/^validar a mensagem de sucesso$/) do
+  expect(page).to have_content 'Successfully Saved'
+  find(:id, 'welcome').click
  	click_link('Logout')
- 	sleep 6
+ 	sleep 2
 end
 
 
@@ -32,19 +33,19 @@ Quando(/^alterar o cadastro$/) do
   click_button('btnLogin')
   click_link('PIM')
   click_link('menu_pim_viewEmployeeList')
-  fill_in('empsearch_id',:with =>'0089')
+  fill_in('empsearch[id]',:with =>'0089')
   click_button('searchBtn')
   click_link('andrew')
   click_button('btnSave')
-  sleep 6
+  sleep 4
   fill_in('personal_txtEmpLastName',:with =>'Krors')
-  sleep 6
+  sleep 4
   click_button('btnSave')
-  sleep 6
  end
 
- Entao(/^realizar a alteracao$/) do
- 	find(:id, 'welcome').click
- 	click_link('Logout')
- 	sleep 6
+ Entao(/^validar a mensagem de alteracao com sucesso$/) do
+   expect(page).to have_content 'Successfully Saved'
+  #sleep 4
+  find(:id, 'welcome').click
+  click_link('Logout')
  end
